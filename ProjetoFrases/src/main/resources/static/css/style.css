@@ -1,0 +1,14 @@
+
+@CHARSET "UTF-8";
+
+input.input-consulta{
+	margin-top: 10px;
+}
+/* Botões */
+
+.btnColor{
+	background-color: #d9edf7;
+}
+.btnColor:hover{
+	background-color: #ffffff;
+}
