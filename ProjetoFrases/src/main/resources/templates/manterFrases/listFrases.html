@@ -6,28 +6,66 @@
 	layout:decorator="Layout">
 <body>
 	<section layout:fragment="conteudo">
+	
+		<div layout:include="Mensagem"/>
+	
 		<div class="panel panel-info"> 
 			<div class="panel-heading"> 
 				<h3 class="panel-title">Consulta Frases</h3> 
 			</div>
 			<div class="panel-body">
-				<div align="center" style="width:50%;margin-left: 20%">
-					 <input id="tituloFrase" type="text" class="form-control input-consulta" placeholder="Título Frase"/>
-					 <input id="autorFrase" type="text" class="form-control input-consulta" placeholder="Autor Frase"/>
-					 
-					 <div style="margin-top: 10px;">
-						 <button type="submit" class="btn btn-default btnColor" onclick="swal('Ainda não implementado!', 'Relaxa ai cara', 'error');">
-						  	<span class="glyphicon glyphicon-search" aria-hidden="true"> Pesquisar</span>
-						 </button>
-						 <button type="button" class="btn btn-default btnColor" onclick="location.href='frases/novo'">
-						  	<span class="glyphicon glyphicon-plus" aria-hidden="true" > Incluir</span>
-						 </button>
-						 <button type="button" class="btn btn-default btnColor" onclick="limparCampos();">
-						  	<span class="glyphicon glyphicon-scissors" aria-hidden="true"> Limpar</span>
-						 </button>
-					 </div>
-				</div>
+				<form method="GET" class="form-horizontal" th:action="@{/frases/pesquisar}" th:object="${filtro}">
+					<div align="center" style="width:50%;margin-left: 20%">
+						 <input id="tituloFrase" type="text" class="form-control" th:field="*{tituloFrase}" autofocus="autofocus" placeholder="Título Frase"/>
+					 <input id="autorFrase" type="text" class="form-control" th:field="*{autorFrase}" placeholder="Autor Frase"/>
+						 
+						 <div style="margin-top: 10px;">
+							 <button type="submit" class="btn btn-default btnColor">
+							  	<span class="glyphicon glyphicon-search" aria-hidden="true"> Pesquisar</span>
+							 </button>
+							 <button type="button" class="btn btn-default btnColor" onclick="location.href='frases/novo'">
+							  	<span class="glyphicon glyphicon-plus" aria-hidden="true" > Incluir</span>
+							 </button>
+							 <button type="button" class="btn btn-default btnColor" onclick="limparCampos();">
+							  	<span class="glyphicon glyphicon-scissors" aria-hidden="true"> Limpar</span>
+							 </button>
+						 </div>
+					</div>
+				</form>
 			</div>
+		</div>
+		<div class="table-responsive div-tabela" style="" align="center" id="tabela">
+  			<table class="table table-striped">
+		    	<thead>
+		    		<tr>
+		    			
+		    			<th>Exibir</th>
+		    			<th>Título</th>
+		    			<th>Descrição</th>
+		    			<th>Autor</th>
+		    			<th>Editar</th>
+		    			<th>Excluir</th>
+		    		</tr>
+				</thead>
+		    	<tbody>
+		    		<tr>
+		    			<td align="center"><span class="glyphicon glyphicon-list-alt" onclick="swal('calma');"></span></td>
+		    			<td>Never Walk Alone</td>
+		    			<td>You never walk alone</td>
+		    			<td>Liverpol</td>
+		    			<td align="center"><span class="glyphicon glyphicon-pencil"></span></td>
+		    			<td align="center"><span class="glyphicon glyphicon-remove"></span></td>
+		    		</tr>
+		    		<tr>
+		    			<td align="center"><span class="glyphicon glyphicon-list-alt"></span></td>
+		    			<td>Don't give up</td>
+		    			<td>Never give up! Never let things out of your control dictate who you are</td>
+		    			<td>desconhecido</td>
+		    			<td align="center"><span class="glyphicon glyphicon-pencil"></span></td>
+		    			<td align="center"><span class="glyphicon glyphicon-remove"></span></td>
+		    		</tr>
+		    	</tbody>
+		  </table>
 		</div>
 	</section>
 	

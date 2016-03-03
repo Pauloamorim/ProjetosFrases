@@ -1,7 +1,7 @@
 
 @CHARSET "UTF-8";
 
-input.input-consulta{
+input{
 	margin-top: 10px;
 }
 /* Botões */
@@ -12,3 +12,17 @@ input.input-consulta{
 .btnColor:hover{
 	background-color: #ffffff;
 }
+
+.delta10{
+	margin-top: 10px;
+}
+
+textarea {
+   resize: none;
+}
+div.div-tabela{
+	width:80%;
+	margin-left:10%;
+}
+
+

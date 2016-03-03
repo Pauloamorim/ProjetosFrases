@@ -6,11 +6,58 @@
 	layout:decorator="Layout">
 <body>
 	<section layout:fragment="conteudo">
-		<h2>Inclusão Frase</h2>
-		<div class="panel panel-default"> 
-			<div class="panel-body"> Basic panel example 
-			</div> 
-		</div> 
+		<form class="form-horizontal" th:action="@{/frases}" method="POST" th:object="${frase}">
+		
+			<div layout:include="MensagemErro"/>
+	
+			<div class="panel panel-info"> 
+			<div class="panel-heading"> 
+				<h3 class="panel-title">Incluir Frases</h3> 
+			</div>
+			<div class="panel-body">
+				<div align="center" style="width:50%;margin-left: 20%">
+				
+					<div class="form-group" th:classappend="${#fields.hasErrors('tituloFrase')} ? has-error">
+						<label for="titulo" class="col-sm-3 control-label delta10">Título Frase:</label>
+						<div class="col-sm-8"> 
+							<input type="text" th:field="*{tituloFrase}"  class="form-control" id="titulo"/>
+						</div>
+					</div>
+					
+					<div class="form-group" th:classappend="${#fields.hasErrors('descricaoFrase')} ? has-error">
+						<label for="descricao" class="col-sm-3 control-label delta10">Descrição Frase:</label>
+						<div class="col-sm-8"> 
+							<textarea rows="10" cols="70" draggable="false"  th:field="*{descricaoFrase}"  class="form-control delta10" id="descricao"></textarea>
+						</div>
+					</div>
+				
+					<div class="form-group" th:classappend="${#fields.hasErrors('autorFrase')} ? has-error">
+						<label for="autor" class="col-sm-3 control-label delta10">Autor Frase:</label>
+						<div class="col-sm-8"> 
+							<input type="text" th:field="*{autorFrase}"  class="form-control" id="autor"/>
+						</div>
+					</div>
+					
+					<div class="form-group" th:classappend="${#fields.hasErrors('categoriaFrase')} ? has-error">
+						<label for="categoria" class="col-sm-3 control-label delta10">Categoria Frase:</label>
+						<div class="col-sm-8"> 
+							<input type="text" th:field="*{categoriaFrase}"  class="form-control" id="categoria"/>
+						</div>
+					</div>
+					 <div style="margin-left: 15%">
+						 <button type="submit" class="btn btn-default btnColor delta10">
+						  	<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"> Salvar</span>
+						 </button>
+						 <button type="button" class="btn btn-default btnColor delta10" onclick="location.href='/frases'">
+						  	<span class="glyphicon glyphicon-arrow-left" aria-hidden="true" > Voltar</span>
+						 </button>
+					 </div>
+				</div>
+			</div>
+		</div>
+
+		</form>
+
 	</section>
 	
 </body>
