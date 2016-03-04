@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -30,26 +32,31 @@ public class FrasesController {
 	@RequestMapping
 	public ModelAndView init(){
 		ModelAndView mv = new ModelAndView(TELA_PESQUISA);
-		mv.addObject("filtro", new FrasesFiltro());
 		return mv;
 	}
 	
 	@RequestMapping(value="/pesquisar",method=RequestMethod.GET)
 	public ModelAndView pesquisar(FrasesFiltro filtro,RedirectAttributes attributes){
-		ModelAndView mv = new ModelAndView("redirect:/frases");
+		ModelAndView mv = new ModelAndView(TELA_PESQUISA);
 		List<Frase> listaFrases = fraseService.pesquisar(filtro);
 		
 		if(listaFrases == null || listaFrases.isEmpty()){
-			attributes.addFlashAttribute("mensagem", "Nenhum Registro encontrado.");
+			mv.addObject("mensagem", "Nenhum Registro encontrado.");
 		}
 		mv.addObject("listaFrases",listaFrases);
 		return mv;
 	}
 	
-	@RequestMapping("/novo")
+	@RequestMapping("novo")
 	public ModelAndView carregarInclusão(){
 		ModelAndView mv = new ModelAndView(TELA_MANTER);
 		mv.addObject("frase",new Frase());
+		return mv;
+	}
+	@RequestMapping("{codigo}")
+	public ModelAndView carregarAlterar(@PathVariable Integer codigo ){
+		ModelAndView mv = new ModelAndView(TELA_MANTER);
+		mv.addObject("frase",fraseService.obter(codigo));
 		return mv;
 	}
 	
@@ -84,6 +91,11 @@ public class FrasesController {
 		}
 		
 		return errors.hasErrors();
+	}
+	
+	@ModelAttribute("filtro")
+	public FrasesFiltro getFraseFiltro(){
+		return new FrasesFiltro();
 	}
 	
 }

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html
+	xmlns="http://www.w3.org.1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="Layout">
+	
+	<div class="table-responsive div-tabela" style="" align="center" id="tabela">
+		<table class="table table-striped">
+	    	<thead>
+	    		<tr>
+	    			<th style="text-align: center !important">Exibir</th>
+	    			<th >Título</th>
+	    			<th >Descrição</th>
+	    			<th >Autor</th>
+	    			<th style="text-align: center !important">Editar</th>
+	    			<th style="text-align: center !important">Excluir</th>
+	    		</tr>
+			</thead>
+		   	<tbody>
+		   		<tr th:each="frase : ${listaFrases}">
+		   			<td hidden="true" th:text="${frase.codigo}"/>
+		   			<td align="center"><span class="glyphicon glyphicon-list-alt" onclick="swal('calma');"></span></td>
+		   			<td th:text="${frase.tituloFrase}"/>
+		   			<td th:text="${frase.descricaoFrase}"></td>
+		   			<td th:text="${frase.autorFrase}"></td>
+		   			<td align="center">
+		   				<a class="btn btn-link btn-xs link_grid" th:href="@{/frases/{codigo}(codigo=${frase.codigo})}"
+		   					rel="tooltip" data-placement="top" title="Editar">
+		   					<span class="glyphicon glyphicon-pencil"></span>
+		   				</a>
+		   			</td>
+		   			<td align="center"><span class="glyphicon glyphicon-remove"></span></td>
+		   			
+		   		</tr>
+		   	</tbody>
+	  </table>
+	</div>
+</html>

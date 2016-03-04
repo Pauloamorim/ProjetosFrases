@@ -24,5 +24,9 @@ div.div-tabela{
 	width:80%;
 	margin-left:10%;
 }
+a.link_grid{
+	text-decoration: none;
+	color: #000000
+}
 
 

@@ -1,3 +1,6 @@
+$(function(){
+	$('[rel="tooltip"]').tooltip();
+});
 function limparCampos(){
 	
 	var divMensagem = document.getElementById('divMensagem');

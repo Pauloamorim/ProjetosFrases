@@ -1,6 +1,6 @@
 package com.ProjetoFrases.service;
 
-import java.util.List; 
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +23,11 @@ public class FraseService {
 
 	public List<Frase> pesquisar(FrasesFiltro filtro) {
 		return fraseRepository.findByTituloFraseContainingAndAutorFraseContaining(filtro.getTituloFrase(), filtro.getAutorFrase());
+	}
+
+
+	public Frase obter(Integer codigo) {
+		return fraseRepository.findOne(codigo);
 	}
 	
 }
