@@ -18,7 +18,7 @@ import com.ProjetoFrases.filter.FrasesFiltro;
 import com.ProjetoFrases.model.Frase;
 import com.ProjetoFrases.service.FraseService;
 
-@Controller
+@Controller 
 @RequestMapping(value="/frases")
 public class FrasesController {
 	

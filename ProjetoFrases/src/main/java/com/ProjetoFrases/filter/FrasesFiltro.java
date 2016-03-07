@@ -1,5 +1,5 @@
 package com.ProjetoFrases.filter;
-
+ 
 public class FrasesFiltro {
 
 	private String autorFrase;
