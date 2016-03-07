@@ -28,5 +28,8 @@ a.link_grid{
 	text-decoration: none;
 	color: #000000
 }
+span.mouse-pointer:hover{
+	cursor: pointer;
+}
 
 

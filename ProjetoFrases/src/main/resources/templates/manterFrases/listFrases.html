@@ -4,8 +4,24 @@
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorator="Layout">
-<body>
+	
 	<section layout:fragment="conteudo">
+	
+		<script type="text/javascript">
+ 			function excluir(codigo){
+ 					swal({
+					title: "Você tem certeza?",
+					text: "Este registro será excluído permanentemente!",
+					type: "warning",
+					showCancelButton: true,
+					confirmButtonColor: "#DD6B55",
+					confirmButtonText: "Sim, quero excluir!",
+					closeOnConfirm: false }, 
+						function(){   
+							window.location.href='/frases/excluir/'+codigo;
+					});
+			}
+		</script>
 	
 		<div layout:include="Mensagem"/>
 	
@@ -37,6 +53,4 @@
 		
 		<div th:if="${not #lists.isEmpty(listaFrases)}" layout:include="manterFrases/gridListFrases"/>
 	</section>
-	
-</body>
 </html>

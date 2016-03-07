@@ -60,6 +60,14 @@ public class FrasesController {
 		return mv;
 	}
 	
+	@RequestMapping("excluir/{codigo}")
+	public ModelAndView excluir(@PathVariable Integer codigo,RedirectAttributes attributes){
+		ModelAndView mv = new ModelAndView(TELA_MANTER);
+		fraseService.excluir(codigo);
+		mv.addObject("mensagem", "Registro excluído com sucesso!");
+		return pesquisar(new FrasesFiltro(), attributes);
+	}
+	
 	@RequestMapping(method=RequestMethod.POST)
 	public String salvar(@Validated Frase frase,Errors errors,RedirectAttributes attributes){
 		

@@ -29,5 +29,10 @@ public class FraseService {
 	public Frase obter(Integer codigo) {
 		return fraseRepository.findOne(codigo);
 	}
+
+
+	public void excluir(Integer codigo) {
+		fraseRepository.delete(codigo);
+	}
 	
 }

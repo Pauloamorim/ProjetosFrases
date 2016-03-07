@@ -5,6 +5,11 @@ public class FrasesFiltro {
 	private String autorFrase;
 	private String tituloFrase; 
 	
+	public FrasesFiltro() {
+		autorFrase = "";
+		tituloFrase = "";
+	}
+	
 	public String getAutorFrase() {
 		return autorFrase;
 	}
