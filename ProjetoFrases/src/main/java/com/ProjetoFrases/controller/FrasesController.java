@@ -32,6 +32,7 @@ public class FrasesController {
 	@RequestMapping
 	public ModelAndView init(){
 		ModelAndView mv = new ModelAndView(TELA_PESQUISA);
+		mv.addObject("filtro", new FrasesFiltro());
 		return mv;
 	}
 	
@@ -43,6 +44,7 @@ public class FrasesController {
 		if(listaFrases == null || listaFrases.isEmpty()){
 			mv.addObject("mensagem", "Nenhum Registro encontrado.");
 		}
+		
 		mv.addObject("listaFrases",listaFrases);
 		return mv;
 	}
@@ -66,6 +68,7 @@ public class FrasesController {
 		fraseService.excluir(codigo);
 		mv.addObject("mensagem", "Registro excluído com sucesso!");
 		return pesquisar(new FrasesFiltro(), attributes);
+	
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)

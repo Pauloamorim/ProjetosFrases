@@ -1,6 +1,7 @@
 
 @CHARSET "UTF-8";
 
+<<<<<<< HEAD
 html{
 	height: 100%;
 }
@@ -8,6 +9,8 @@ body{
 	height: 100%;
 }
 
+=======
+>>>>>>> 7c0b93d14cd07223709229230e17c8804afc5347
 input{
 	margin-top: 10px;
 }
@@ -31,6 +34,7 @@ div.div-tabela{
 	width:80%;
 	margin-left:10%;
 }
+<<<<<<< HEAD
 a.link_grid{
 	text-decoration: none;
 	color: #000000
@@ -38,5 +42,7 @@ a.link_grid{
 span.mouse-pointer:hover{
 	cursor: pointer;
 }
+=======
+>>>>>>> 7c0b93d14cd07223709229230e17c8804afc5347
 
 
