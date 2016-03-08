@@ -1,6 +1,13 @@
 
 @CHARSET "UTF-8";
 
+html{
+	height: 100%;
+}
+body{
+	height: 100%;
+}
+
 input{
 	margin-top: 10px;
 }

@@ -13,17 +13,47 @@
 	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
 	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 	<link rel="stylesheet" type="text/css" th:href="@{/css/sweetalert.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style-menu.css}"/>
 </head>
 
 <body>
+	<div class="col-md-2" style="padding: 0px !important;height: 100%">
+	<div id='cssmenu'>
+		<ul>
+		   <li><a href='#'>Home</a></li>
+		   <li class='has-sub'><a href='#'>Products</a>
+		      <ul>
+		         <li class='has-sub'><a href='#'>Product 1</a>
+		            <ul>
+		               <li><a href='#'>Sub Product</a></li>
+		               <li><a href='#'>Sub Product</a></li>
+		            </ul>
+		         </li>
+		         <li class='has-sub'><a href='#'>Product 2</a>
+		            <ul>
+		               <li><a href='#'>Sub Product</a></li>
+		               <li><a href='#'>Sub Product</a></li>
+		            </ul>
+		         </li>
+		      </ul>
+		   </li>
+		   <li><a href='#'>About</a></li>
+		   <li><a href='#'>Contact</a></li>
 
+
+		</ul>
+	</div>
+	</div>
+	<div class="col-md-10" style="padding: 0px !important;">
     <section layout:fragment="conteudo">
    	</section>
+   	</div>
     
     <script th:src="@{/js/jquery-2.2.0.min.js}"></script>
 	<script th:src="@{/js/bootstrap.min.js}"></script>
 	<script th:src="@{/js/funcoes.js}"></script>
 	<script th:src="@{/js/sweetalert.min.js}"></script>
+	<script th:src="@{/js/script-menu.js}"></script>
 	
  </body>
  </html>
